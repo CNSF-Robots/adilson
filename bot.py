@@ -20,11 +20,8 @@ conversation = [
 trainer = ListTrainer(chatbot)
 trainer.train(conversation)
 
-while True:
+def chat(text_input):
     try:
-        print("User: ")
-        text_input = input()
-
         if 'citação' in text_input:
             response = requests.get('https://api.quotable.io/random')
             
@@ -37,10 +34,19 @@ while True:
             rest = quote
 
         else:
-            rest = chatbot.get_response(text_input)
+            response = chatbot.get_response(text_input)
 
-        print(BOTNAME+": ", rest)
+            if float(response.confidence) > 0.1:
+                rest = response
+            else:
+                rest = "Não entendi!"
+
+        response = {
+            "msg":str(rest)
+        }
+
+        return response
 
     except(KeyboardInterrupt, EOFError, SystemExit):
-        print(" Deu pau :(")
-        break
+        return "Deu pau :("
+    

@@ -18,9 +18,13 @@ Single chatbot python
 
     pip install chatterbot_corpus
 
+    pip install Flask
+
+    pip install -U flask-cors
+
 # Run
 
-    python main.py
+    python run.py
 
 # Database
 
