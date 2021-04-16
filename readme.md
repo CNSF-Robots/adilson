@@ -22,6 +22,19 @@ Single chatbot python
 
     pip install -U flask-cors
 
+
+# Settings
+
+    in directory ```static``` >> ```assets```` >> ```js```` >> ```script.js``` and 
+    config line:
+
+        // your id ngrok generated
+        fetch("http://58e688e201b0.ngrok.io/chat_flow/" 
+
+## Run [NGROK](https://ngrok.com/)
+
+    
+
 # Run
 
     python run.py
